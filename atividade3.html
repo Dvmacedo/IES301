@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Verificação de Número Par ou Ímpar</title>
+</head>
+<body>
+  <script>
+    
+    const userInput = prompt("Por favor, insira um número inteiro positivo:");
+
+    
+    if (userInput !== null) {
+      const number = parseInt(userInput);
+
+      
+      if (!isNaN(number) && number > 0 && Number.isInteger(number)) {
+        if (number % 2 === 0) {
+          alert(`O número ${number} é par.`);
+        } else {
+          alert(`O número ${number} é ímpar.`);
+        }
+      } else {
+        alert("Por favor, insira um número inteiro positivo válido.");
+      }
+    } else {
+      alert("Nenhum número foi inserido.");
+    }
+  </script>
+</body>
+</html>

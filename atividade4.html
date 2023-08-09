@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cálculo do Fatorial</title>
+</head>
+<body>
+  <script>
+    
+    function calculateFactorial(number) {
+      if (number === 0 || number === 1) {
+        return 1;
+      }
+      return number * calculateFactorial(number - 1);
+    }
+
+    
+    const userInput = prompt("Por favor, insira um número inteiro positivo:");
+
+    
+    if (userInput !== null) {
+      const number = parseInt(userInput);
+
+      
+      if (!isNaN(number) && number > 0 && Number.isInteger(number)) {
+        const factorial = calculateFactorial(number);
+        alert(`O fatorial de ${number} é ${factorial}.`);
+      } else {
+        alert("Por favor, insira um número inteiro positivo válido.");
+      }
+    } else {
+      alert("Nenhum número foi inserido.");
+    }
+  </script>
+</body>
+</html>
