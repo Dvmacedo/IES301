@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Array Dinâmico</title>
+</head>
+<body>
+  <h1>Array Dinâmico</h1>
+  
+  <form id="dataForm">
+    <label for="value">Novo Valor:</label>
+    <input type="text" id="value" name="value">
+    <button type="button" id="addButton">Adicionar</button>
+  </form>
+
+  <h2>Valores Cadastrados:</h2>
+  <ol id="valueList"></ol>
+
+  <script>
+    const valuesArray = [];
+
+    const form = document.getElementById('dataForm');
+    const valueInput = document.getElementById('value');
+    const addButton = document.getElementById('addButton');
+    const valueList = document.getElementById('valueList');
+
+    addButton.addEventListener('click', () => {
+      const newValue = valueInput.value.trim();
+      if (newValue !== '') {
+        valuesArray.push(newValue);
+        valuesArray.sort(); 
+
+        valueList.innerHTML = '';
+
+        for (const value of valuesArray) {
+          const listItem = document.createElement('li');
+          listItem.textContent = value;
+          valueList.appendChild(listItem);
+        }
+
+        valueInput.value = ''; 
+      }
+    });
+  </script>
+</body>
+</html>
