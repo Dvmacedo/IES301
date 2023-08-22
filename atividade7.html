@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relógio</title>
+</head>
+<body>
+  <p id="horario"></p>
+
+  <script>
+
+    function atualizarHorario() {
+      const horarioAtual = new Date();
+      const horas = horarioAtual.getHours().toString().padStart(2, '0');
+      const minutos = horarioAtual.getMinutes().toString().padStart(2, '0');
+      const segundos = horarioAtual.getSeconds().toString().padStart(2, '0');
+      const horarioFormatado = `${horas}:${minutos}:${segundos}`;
+      
+      document.getElementById("horario").textContent = horarioFormatado;
+      
+      setTimeout(atualizarHorario, 1000);
+    }
+
+    atualizarHorario();
+  </script>
+</body>
+</html>
