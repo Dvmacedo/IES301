@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Array Dinamico</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Array Dinâmico</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">   
+    <style>
+    </style>
 </head>
 <body>
-    <h1>Array Dinamico</h1>
-    
-    <form id="input-form">
-        <label for="value">Digite o Valor:</label>
-        <input type="text" id="value" name="value">
-        <button type="button" onclick="addValue()">Inserir</button>
-    </form>
+    <div class="container mt-4">
+        <h1>Array Dinâmico</h1>
+        
+        <form id="input-form" class="mb-3">
+            <div class="form-group">
+                <label for="value">Digite o Valor:</label>
+                <input type="text" class="form-control" id="value" name="value">
+            </div>
+            <button type="button" class="btn btn-primary" onclick="addValue()">Inserir</button>
+        </form>
 
-    <h2>Valores:</h2>
-    <p id="value-list"></p>
+        <h2>Valores:</h2>
+        <p id="value-list"></p>
+        
+        <a class="btn btn-secondary mt-3" href="semana2.html">Voltar para Semana 2</a>
+    </div>
 
     <script>
         const valuesArray = [];
@@ -35,5 +46,8 @@
             valueList.textContent = valuesArray.join(', ');
         }
     </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

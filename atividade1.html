@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Verificação de Tipo de Dado</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Verificação de Tipo de Dado</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <script>
-   
-    const userInput = prompt("Por favor, insira um dado:");
-     
-    if (userInput !== null) {
-      
-      const confirmCheckType = confirm("Deseja verificar o tipo do dado informado?");
-
-      
-      if (confirmCheckType) {
-        const dataType = typeof userInput;
-        document.body.innerHTML = `O tipo do dado inserido é: ${dataType}`;
-      } else {
-        document.body.innerHTML = "Obrigado por visitar esta página";
-      }
-    } else {
-      document.body.innerHTML = "Nenhum dado foi inserido. Obrigado por visitar esta página";
-    }
-  </script>
+    <div class="container mt-4">
+        <script>
+            const userInput = prompt("Por favor, insira um dado:");
+             
+            if (userInput !== null) {
+              
+              const confirmCheckType = confirm("Deseja verificar o tipo do dado informado?");
+        
+              
+              if (confirmCheckType) {
+                const dataType = typeof userInput;
+                document.body.innerHTML = `O tipo do dado inserido é: ${dataType}`;
+              } else {
+                document.body.innerHTML = "Obrigado por visitar esta página";
+              }
+            } else {
+              document.body.innerHTML = "Nenhum dado foi inserido. Obrigado por visitar esta página";
+            }
+        </script>
+        <a class="btn btn-secondary mt-3" href="semana1.html">Voltar para Semana 1</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
