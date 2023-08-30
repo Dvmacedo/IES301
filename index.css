@@ -1,0 +1,7 @@
+body {
+    background-color: #f4f4f4; 
+    background-image: url('js.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
