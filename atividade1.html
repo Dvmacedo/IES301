@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="container mt-4">
+        <p id="result"></p>
         <script>
             const userInput = prompt("Por favor, insira um dado:");
              
@@ -19,14 +20,18 @@
               
               if (confirmCheckType) {
                 const dataType = typeof userInput;
-                document.body.innerHTML = `O tipo do dado inserido é: ${dataType}`;
+                const result = `O tipo do dado inserido é: ${dataType}`;
+                document.getElementById('result').textContent = result;
               } else {
-                document.body.innerHTML = "Obrigado por visitar esta página";
+                const result = "Obrigado por visitar esta página";
+                document.getElementById('result').textContent = result;
               }
             } else {
-              document.body.innerHTML = "Nenhum dado foi inserido. Obrigado por visitar esta página";
+              const result = "Nenhum dado foi inserido. Obrigado por visitar esta página";
+              document.getElementById('result').textContent = result;
             }
         </script>
+        
         <a class="btn btn-secondary mt-3" href="semana1.html">Voltar para Semana 1</a>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

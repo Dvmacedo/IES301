@@ -1,35 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cálculo do Fatorial</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cálculo do Fatorial</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <script>
-    
-    function calculateFactorial(number) {
-      if (number === 0 || number === 1) {
-        return 1;
-      }
-      return number * calculateFactorial(number - 1);
-    }
+    <div class="container mt-4">
+        <script>
+            function calculateFactorial(number) {
+                if (number === 0 || number === 1) {
+                    return 1;
+                }
+                return number * calculateFactorial(number - 1);
+            }
 
-    
-    const userInput = prompt("Por favor, insira um número inteiro positivo:");
+            const userInput = prompt("Por favor, insira um número inteiro positivo:");
 
-    
-    if (userInput !== null) {
-      const number = parseInt(userInput);
+            if (userInput !== null) {
+                const number = parseInt(userInput);
 
-      
-      if (!isNaN(number) && number > 0 && Number.isInteger(number)) {
-        const factorial = calculateFactorial(number);
-        alert(`O fatorial de ${number} é ${factorial}.`);
-      } else {
-        alert("Por favor, insira um número inteiro positivo válido.");
-      }
-    } else {
-      alert("Nenhum número foi inserido.");
-    }
-  </script>
+                if (!isNaN(number) && number > 0 && Number.isInteger(number)) {
+                    const factorial = calculateFactorial(number);
+                    alert(`O fatorial de ${number} é ${factorial}.`);
+                } else {
+                    alert("Por favor, insira um número inteiro positivo válido.");
+                }
+            } else {
+                alert("Nenhum número foi inserido.");
+            }
+        </script>
+        
+        <a class="btn btn-secondary mt-3" href="semana1.html">Voltar para Semana 1</a>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Verificador de Palíndromo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Palíndromo</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <label for="texto">Digite uma palavra ou frase:</label>
-  <input type="text" id="texto">
-  <button onclick="verificarPalindromo()">Verificar</button>
+    <div class="container mt-4">
+        <label for="texto">Digite uma palavra ou frase:</label>
+        <input type="text" id="texto">
+        <button onclick="verificarPalindromo()">Verificar</button>
+    </div>
+    
+    <script>
+        function verificarPalindromo() {
+            const inputTexto = document.getElementById("texto").value;
+            const textoFormatado = inputTexto.toLowerCase().replace(/[^a-z0-9]/g, ''); 
+            const textoReverso = textoFormatado.split('').reverse().join('');
 
-  <script>
-    function verificarPalindromo() {
-      const inputTexto = document.getElementById("texto").value;
-      const textoFormatado = inputTexto.toLowerCase().replace(/[^a-z0-9]/g, ''); 
-      const textoReverso = textoFormatado.split('').reverse().join('');
-      
-      if (textoFormatado === textoReverso) {
-        alert("É um palíndromo!");
-      } else {
-        alert("Não é um palíndromo.");
-      }
-    }
-  </script>
+            if (textoFormatado === textoReverso) {
+                alert("É um palíndromo!");
+            } else {
+                alert("Não é um palíndromo.");
+            }
+        }
+    </script>
+    
+    <div class="container mt-3">
+        <a class="btn btn-secondary" href="semana3.html">Voltar para Semana 3</a>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

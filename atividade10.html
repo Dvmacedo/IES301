@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Características do Carro</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <form id="car-form">
+            <div class="form-group">
+                <label for="marca">Marca:</label>
+                <input type="text" class="form-control" id="marca" required>
+            </div>
+            <div class="form-group">
+                <label for="modelo">Modelo:</label>
+                <input type="text" class="form-control" id="modelo" required>
+            </div>
+            <div class="form-group">
+                <label for="ano">Ano:</label>
+                <input type="number" class="form-control" id="ano" required>
+            </div>
+            <div class="form-group">
+                <label for="cor">Cor:</label>
+                <input type="text" class="form-control" id="cor" required>
+            </div>
+            <div class="form-group">
+                <label for="kilometragem">Kilometragem:</label>
+                <input type="number" class="form-control" id="kilometragem" required>
+            </div>
+            <div class="form-group">
+                <label for="valor_fipe">Valor FIPE:</label>
+                <input type="number" class="form-control" id="valor_fipe" required>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="calcularCarro()">Calcular</button>
+        </form>
+        
+        <p id="resultado" class="mt-3"></p>
+    </div>
+    
+    <script>
+        class Carro {
+            constructor(marca, modelo, ano, cor, kilometragem, valor_fipe) {
+                this.marca = marca;
+                this.modelo = modelo;
+                this.ano = ano;
+                this.cor = cor;
+                this.kilometragem = kilometragem;
+                this.valor_fipe = valor_fipe;
+            }
+
+            anosUtilizacao() {
+                const anoAtual = new Date().getFullYear();
+                return anoAtual - this.ano;
+            }
+
+            valorMercado() {
+                if (this.kilometragem <= 30000) {
+                    return this.valor_fipe * 1.1;
+                } else if (this.kilometragem <= 50000) {
+                    return this.valor_fipe * 1;
+                } else {
+                    return this.valor_fipe * 0.9;
+                }
+            }
+        }
+
+        function calcularCarro() {
+            const marca = document.getElementById("marca").value;
+            const modelo = document.getElementById("modelo").value;
+            const ano = parseInt(document.getElementById("ano").value);
+            const cor = document.getElementById("cor").value;
+            const kilometragem = parseInt(document.getElementById("kilometragem").value);
+            const valor_fipe = parseFloat(document.getElementById("valor_fipe").value);
+
+            const carro = new Carro(marca, modelo, ano, cor, kilometragem, valor_fipe);
+
+            const anosUtilizacao = carro.anosUtilizacao();
+            const valorMercado = carro.valorMercado();
+
+            const resultado = `O veículo tem ${anosUtilizacao} anos de utilização e seu valor de mercado é R$ ${valorMercado.toFixed(2)}.`;
+            document.getElementById("resultado").textContent = resultado;
+        }
+    </script>
+    
+    <div class="container mt-3">
+        <a class="btn btn-secondary" href="semana4.html">Voltar para Semana 4</a>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

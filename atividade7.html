@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Relógio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <p id="horario"></p>
+    <div class="container mt-4">
+        <p id="horario"></p>
+        <script>
+            function atualizarHorario() {
+                const horarioAtual = new Date();
+                const horas = horarioAtual.getHours().toString().padStart(2, '0');
+                const minutos = horarioAtual.getMinutes().toString().padStart(2, '0');
+                const segundos = horarioAtual.getSeconds().toString().padStart(2, '0');
+                const horarioFormatado = `${horas}:${minutos}:${segundos}`;
+                
+                document.getElementById("horario").textContent = horarioFormatado;
+                
+                setTimeout(atualizarHorario, 1000);
+            }
 
-  <script>
-
-    function atualizarHorario() {
-      const horarioAtual = new Date();
-      const horas = horarioAtual.getHours().toString().padStart(2, '0');
-      const minutos = horarioAtual.getMinutes().toString().padStart(2, '0');
-      const segundos = horarioAtual.getSeconds().toString().padStart(2, '0');
-      const horarioFormatado = `${horas}:${minutos}:${segundos}`;
-      
-      document.getElementById("horario").textContent = horarioFormatado;
-      
-      setTimeout(atualizarHorario, 1000);
-    }
-
-    atualizarHorario();
-  </script>
+            atualizarHorario();
+        </script>
+        
+        <a class="btn btn-secondary mt-3" href="semana3.html">Voltar para Semana 3</a>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,45 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Verificação de Número Primo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Verificação de Número Primo</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <script>
-    
-    function isPrime(number) {
-      if (number <= 1) {
-        return false;
-      }
-      for (let i = 2; i <= Math.sqrt(number); i++) {
-        if (number % i === 0) {
-          return false;
-        }
-      }
-      return true;
-    }
+    <div class="container mt-4">
+        <script>
+            function isPrime(number) {
+                if (number <= 1) {
+                    return false;
+                }
+                for (let i = 2; i <= Math.sqrt(number); i++) {
+                    if (number % i === 0) {
+                        return false;
+                    }
+                }
+                return true;
+            }
 
+            const userInput = prompt("Por favor, insira um número inteiro positivo:");
 
-    const userInput = prompt("Por favor, insira um número inteiro positivo:");
+            if (userInput !== null) {
+                const number = parseInt(userInput);
 
-    
-    if (userInput !== null) {
-      const number = parseInt(userInput);
+                if (!isNaN(number) && number > 0 && Number.isInteger(number)) {
+                    const isNumberPrime = isPrime(number);
 
-      
-      if (!isNaN(number) && number > 0 && Number.isInteger(number)) {
-        const isNumberPrime = isPrime(number);
-
-        if (isNumberPrime) {
-          alert(`O número ${number} é primo.`);
-        } else {
-          alert(`O número ${number} não é primo.`);
-        }
-      } else {
-        alert("Por favor, insira um número inteiro positivo válido.");
-      }
-    } else {
-      alert("Nenhum número foi inserido.");
-    }
-  </script>
+                    if (isNumberPrime) {
+                        alert(`O número ${number} é primo.`);
+                    } else {
+                        alert(`O número ${number} não é primo.`);
+                    }
+                } else {
+                    alert("Por favor, insira um número inteiro positivo válido.");
+                }
+            } else {
+                alert("Nenhum número foi inserido.");
+            }
+        </script>
+        
+        <a class="btn btn-secondary mt-3" href="semana1.html">Voltar para Semana 1</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
