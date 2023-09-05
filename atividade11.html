@@ -21,8 +21,8 @@
         </div>
         <div class="text-center mt-3">
             <button class="btn btn-primary" onclick="adicionarHomem()">Adicionar Homem</button>
-            <button class="btn btn-primary" onclick="adicionarMulher()">Adicionar Mulher</button>
             <button class="btn btn-danger" onclick="removerHomem()">Remover Homem</button>
+            <button class="btn btn-primary" onclick="adicionarMulher()">Adicionar Mulher</button>
             <button class="btn btn-danger" onclick="removerMulher()">Remover Mulher</button>
             <button class="btn btn-warning" onclick="resetarContador()">Resetar Contador</button>
         </div>
@@ -45,18 +45,18 @@
             atualizarContadores();
         }
 
-        function adicionarMulher() {
-            contadorTotal++;
-            contadorMulheres++;
-            atualizarContadores();
-        }
-
         function removerHomem() {
             if (contadorHomens > 0) {
                 contadorTotal--;
                 contadorHomens--;
                 atualizarContadores();
             }
+        }
+
+        function adicionarMulher() {
+            contadorTotal++;
+            contadorMulheres++;
+            atualizarContadores();
         }
 
         function removerMulher() {
