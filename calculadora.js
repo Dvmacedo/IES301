@@ -1,89 +1,32 @@
-let operando1 = '';
-let operando2 = '';
-let operador = '';
-let resultado = 0;
-let decimal = false;
+let result = document.getElementById("result");
 
-function atualizarDisplay() {
-    document.getElementById('resultado').value = resultado;
-}
-
-function limpar() {
-    operando1 = '';
-    operando2 = '';
-    operador = '';
-    resultado = 0;
-    decimal = false;
-    atualizarDisplay();
-}
-
-function adicionarNumero(numero) {
-    if (operador === '') {
-        operando1 += numero;
-        resultado = parseFloat(operando1);
+function input(num) {
+    if (result.value === 'Erro! Adicione valores válidos.') {
+        result.value = num;
     } else {
-        operando2 += numero;
-        resultado = parseFloat(operando2);
+        result.value += num;
     }
-    atualizarDisplay();
 }
 
-function adicionarDecimal() {
-    if (!decimal) {
-        decimal = true;
-        if (operador === '') {
-            operando1 += '.';
-            resultado = parseFloat(operando1);
+function calc() {
+    try {
+        if (result.value !== "") {
+            let expression = result.value;
+            expression = expression.replace('%', '/100*');
+            result.value = eval(expression);
         } else {
-            operando2 += '.';
-            resultado = parseFloat(operando2);
+            alert("Erro! Adicione valores válidos.");
         }
-        atualizarDisplay();
+    } catch (error) {
+        result.value = 'Erro! Adicione valores válidos.';
     }
 }
 
-function adicionarOperador(op) {
-    if (operador === '') {
-        operador = op;
-        decimal = false;
-    } else {
-        calcularResultado();
-        operador = op;
-        operando2 = '';
-        decimal = false;
-    }
+function reset() {
+    result.value = "";
 }
 
-function calcularResultado() {
-    switch (operador) {
-        case '+':
-            resultado = parseFloat(operando1) + parseFloat(operando2);
-            break;
-        case '-':
-            resultado = parseFloat(operando1) - parseFloat(operando2);
-            break;
-        case '*':
-            resultado = parseFloat(operando1) * parseFloat(operando2);
-            break;
-        case '/':
-            resultado = parseFloat(operando1) / parseFloat(operando2);
-            break;
-    }
-    operando1 = resultado.toString();
-    operando2 = '';
-    operador = '';
-    atualizarDisplay();
+function del() {
+    let currentValue = result.value;
+    result.value = currentValue.substring(0, currentValue.length - 1);
 }
-
-function alterarSinal() {
-    if (operador === '') {
-        operando1 = (parseFloat(operando1) * -1).toString();
-        resultado = parseFloat(operando1);
-    } else {
-        operando2 = (parseFloat(operando2) * -1).toString();
-        resultado = parseFloat(operando2);
-    }
-    atualizarDisplay();
-}
-
-atualizarDisplay();
